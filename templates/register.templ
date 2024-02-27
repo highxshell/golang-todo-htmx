@@ -1,0 +1,27 @@
+package templates
+
+import "github.com/highxshell/golang-todo/templates/layout"
+import "github.com/highxshell/golang-todo/templates/components"
+
+templ Register() {
+	@layout.MainLayout() {
+		<form hx-replace-url="true" hx-post="/register" class="min-h-screen w-screen flex flex-col justify-center items-center relative gap-6 bg-[#292F3F] px-12">
+			<h1 class="text-white font-bold text-xl">Register</h1>
+			<div class="flex flex-col gap-2 w-full max-w-[600px]">
+				<p class="text-sm text-white">Username</p>
+				<input name="username" type="text" class="text-sm rounded-[10px] bg-black/25 autofill:bg-black/25 py-[12px] px-4 text-white/60 w-full"/>
+			</div>
+			<div class="flex flex-col gap-2 w-full max-w-[600px]">
+				<p class="text-sm text-white">Password</p>
+				<input name="password" type="password" class="text-sm rounded-[10px] bg-black/25 autofill:bg-black/25 py-[12px] px-4 text-white/60 w-full"/>
+			</div>
+			<div class="flex flex-col gap-2 w-full max-w-[600px]">
+				<p class="text-sm text-white">Confirm Password</p>
+				<input name="confirmPassword" type="password" class="text-sm rounded-[10px] bg-black/25 autofill:bg-black/25 py-[12px] px-4 text-white/60 w-full"/>
+			</div>
+			<button type="submit" class="text-white bg-[#03A9F1] rounded-2xl w-full max-w-[600px] text-base font-semibold py-[12px]">Register Now</button>
+			<a href="/" class="text-white w-full max-w-[600px] text-sm text-center">Already registered? Login here.</a>
+		</form>
+		@components.Snackbar("login_error")
+	}
+}
